@@ -1,0 +1,7 @@
+(define (probe-time func)
+    (let ((start-time (current-time)))
+        (func)
+        (let ((time-diff (time-difference (current-time) start-time)))
+            (+ (time-nanosecond time-diff)
+               (* (time-second time-diff)
+                  1000000000)))))
